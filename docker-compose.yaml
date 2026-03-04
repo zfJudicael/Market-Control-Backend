@@ -5,8 +5,9 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - ./app:/app        
-      - node_modules:/app/node_modules  
+      - ./app:/app       
+    networks:
+      - pgnetwork 
 
   postgres:
     image: postgres:18.3-alpine
@@ -37,7 +38,6 @@ services:
       - pgnetwork
 
 volumes:
-  node_modules:  
   pgdata:
 
 networks:
